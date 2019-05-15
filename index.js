@@ -4,7 +4,6 @@ const request = require('request-promise').defaults({
 })
 const cheerio = require('cheerio')
 const sendEmail = require('./Email.js')
-const fs = require('fs')
 require('dotenv').config()
 
 // firestore
@@ -27,7 +26,7 @@ async function loginHuurgoed () {
     const result = await request.post({
       // POST request with cookie set, and token from form
       uri: loginUrl,
-      from: {
+      form: {
         _token: token,
         email: process.env.HUURGOED_USER,
         password: process.env.HUURGOED_PASS
@@ -37,7 +36,6 @@ async function loginHuurgoed () {
       },
       simple: false
     })
-    fs.writeFileSync('./loggedin.html', result)
   } catch (error) {
     console.error('there was a problem ' + error)
   }
@@ -88,7 +86,7 @@ async function scrapeHuurgoed () {
 async function main () {
   try {
     await loginHuurgoed()
-    // await scrapeHuurgoed()
+    await scrapeHuurgoed()
   } catch (err) {
     console.error(err)
   }
