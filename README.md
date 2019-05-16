@@ -1,10 +1,30 @@
 # housescraper
 
-Database: Firestore\s\s
-Run every hour by: Heroku\s\s
+### Commands
 
-Run: node index.js\s\s
-Debug: node --inspect index.js\s\s
+Run
 
-Deployed to Heroku: push to master branch on Github.\s\s
-Check app logs in Heroku: heroku logs\s\s
+```
+node index.js
+```
+
+Debug
+
+```
+node --inspect index.js
+```
+
+## Deployment
+
+Deployed to Heroku: push to master branch on Github.
+
+Check app logs in Heroku
+
+```
+heroku logs
+```
+
+## Built With
+
+* [Firestore](https://firebase.google.com/docs/firestore) - Database
+* [Heroku](https://www.heroku.com/) - Cloud Server
